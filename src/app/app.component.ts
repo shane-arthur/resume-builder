@@ -16,9 +16,14 @@ export class AppComponent implements AfterViewInit {
 		html2canvas(document.body, 
 								{scale: 1, allowTaint: true,   imageTimeout:0,  useCORS: true}
 						 ).then(canvas => {
+               console.log(canvas);
                document.body.appendChild(canvas);
-			let pdf = new jsPDF('p', 'mm', 'a4');
-			pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 211, 298);
+      let pdf = new jsPDF('landscape', 'pt', 'a4');
+      const imgData = canvas.toDataURL('image/png');
+      const imgProps= pdf.getImageProperties(imgData);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
 			pdf.save(filename);
 		});
   }

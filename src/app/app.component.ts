@@ -18,7 +18,7 @@ export class AppComponent implements AfterViewInit {
 						 ).then(canvas => {
                console.log(canvas);
                document.body.appendChild(canvas);
-      let pdf = new jsPDF('landscape', 'pt', 'a4');
+      let pdf = new jsPDF('l');
       const imgData = canvas.toDataURL('image/png');
       const imgProps= pdf.getImageProperties(imgData);
         const pdfWidth = pdf.internal.pageSize.getWidth();

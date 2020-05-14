@@ -24,9 +24,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/pillar-1.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/fontawesome/js/all.min.js"
+            ]
           },
           "configurations": {
             "production": {

@@ -13,7 +13,7 @@ export class AppComponent implements AfterViewInit {
     //const filename  = 'ThisIsYourPDFFilename.pdf';
 
 		html2canvas(document.body, 
-								{scale: 1}
+								{scale: 1, allowTaint: true,  useCORS: true}
 						 ).then(canvas => {
                document.body.appendChild(canvas);
 			// let pdf = new jsPDF('p', 'mm', 'a4');

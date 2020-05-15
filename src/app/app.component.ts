@@ -33,7 +33,7 @@ export class AppComponent implements AfterViewInit {
         const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
         pdf.addPage();
         pdf.setPage(2);
-        pdf.addImage(imgData, 'PNG', 0, 1, pdfWidth, pdfHeight);
+        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
         pdf.save(filename);
       });
 

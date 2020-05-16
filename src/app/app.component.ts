@@ -27,13 +27,15 @@ export class AppComponent implements AfterViewInit {
       html2canvas(document.getElementById('secondPage'),
         { scale: 1, allowTaint: true, imageTimeout: 0, useCORS: true }
       ).then(canvas => {
-        const imgData = canvas.toDataURL('image/png');
-        const imgProps = pdf.getImageProperties(imgData);
+        var context = canvas.getContext("2d");
+        context.fillStyle="#FFFFFF";
+        const imgData2 = canvas.toDataURL('image/png');
+        const imgProps = pdf.getImageProperties(imgData2);
         const pdfWidth = pdf.internal.pageSize.getWidth();
         const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
         pdf.addPage();
         pdf.setPage(2);
-        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.addImage(imgData2, 'PNG', 0, 0, pdfWidth, pdfHeight);
         pdf.save(filename);
       });
 

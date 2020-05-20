@@ -13,7 +13,7 @@ export class AppComponent implements AfterViewInit {
   ngAfterViewInit() {
     const filename = 'shane-arthur-may-2020.pdf';
 
-    const pdf = new jsPDF('l', 'in', [2000, 1500]);
+    const pdf = new jsPDF('l', 'in', [2000, 1600]);
     html2canvas(document.getElementById('firstPage'),
       { scale: 2, allowTaint: true, imageTimeout: 0, useCORS: true }
     ).then(canvas => {
@@ -25,7 +25,7 @@ export class AppComponent implements AfterViewInit {
       pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
 
       html2canvas(document.getElementById('secondPage'),
-        { scale: 1, allowTaint: true, imageTimeout: 0, useCORS: true }
+        { scale: 2, allowTaint: true, imageTimeout: 0, useCORS: true }
       ).then(canvas => {
         var context = canvas.getContext("2d");
         context.fillStyle="#FFFFFF";
